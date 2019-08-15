@@ -50,7 +50,7 @@ public class CategoriesController {
     }
 
     @PostMapping(path = "/categories")
-    public ResponseEntity<List<Category>> crear(){
+    public ResponseEntity<List<Category>> crear(@){
         Category categoria = new Category(66);
         categoria.setNombre("Peliculas");
 
