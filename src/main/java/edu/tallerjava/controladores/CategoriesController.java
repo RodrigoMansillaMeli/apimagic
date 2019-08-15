@@ -1,17 +1,21 @@
 package edu.tallerjava.controladores;
 
 import edu.tallerjava.modelo.Category;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class CategoriesController {
 
     @GetMapping(path = "/categories")
-    public ArrayList<Category> listarCategorias(){
+    public ResponseEntity<List<Category>> listarCategorias(){
 
         ArrayList<Category> lista = new ArrayList<Category>();
 
@@ -24,7 +28,7 @@ public class CategoriesController {
         lista.add(new Category(98));
         lista.add(new Category(44));
 
-        return lista;
+        return new ResponseEntity(lista, HttpStatus.OK);
 
     }
 
@@ -45,6 +49,13 @@ public class CategoriesController {
     return lista.stream().filter(x-> x.getId() == Long.parseLong(id)).findFirst().get();
     }
 
+    @PostMapping(path = "/categories")
+    public ResponseEntity<List<Category>> crear(){
+        Category categoria = new Category(66);
+        categoria.setNombre("Peliculas");
+
+        return new ResponseEntity(categoria, HttpStatus.OK);
+    }
 
 
 

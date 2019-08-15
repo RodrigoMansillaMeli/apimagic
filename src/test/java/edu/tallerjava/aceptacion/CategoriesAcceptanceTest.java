@@ -45,4 +45,13 @@ public class CategoriesAcceptanceTest extends AcceptanceTest{
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @Test
+    public void createCategory(){
+        Category newCategory = new Category();
+        final ResponseEntity<Category> responseEntity = restTemplate
+                .postForEntity(url + "/categories/", newCategory, Category.class);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody().getId()).isNotNull();
+    }
+
 }
