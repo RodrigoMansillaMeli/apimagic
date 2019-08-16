@@ -8,6 +8,6 @@ import java.util.List;
 public interface CategoryRepository {
 
     List<Category> GetAll();
-    Category GetCategoryById();
-    void CreateCategory();
+    Category GetCategoryById(long id);
+    Category CreateCategory(Category obj);
 }

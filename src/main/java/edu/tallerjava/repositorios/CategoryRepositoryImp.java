@@ -31,12 +31,14 @@ public class CategoryRepositoryImp implements CategoryRepository{
     }
 
     @Override
-    public Category GetCategoryById() {
-        return null;
+    public Category GetCategoryById(long id) {
+        return categories.stream().filter(x->x.getId()==id).findAny().get();
     }
 
     @Override
-    public void CreateCategory() {
-
+    public Category CreateCategory(Category obj) {
+        obj.setId((long)9999);
+        categories.add(obj);
+        return categories.stream().filter(x->x.getId()==obj.getId()).findAny().get();
     }
 }

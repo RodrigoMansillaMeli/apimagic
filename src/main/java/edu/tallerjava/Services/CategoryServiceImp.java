@@ -19,12 +19,13 @@ public class CategoryServiceImp implements CategoryService {
     }
 
     @Override
-    public Category GetCategoryById() {
-        return null;
+    public Category GetCategoryById(long id) {
+        return  categoryRepository.GetCategoryById(id);
     }
 
     @Override
-    public void CreateCategory() {
+    public Category CreateCategory(Category obj) {
 
+        return categoryRepository.CreateCategory(obj);
     }
 }
