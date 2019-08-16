@@ -1,11 +1,11 @@
-package edu.tallerjava.repositorios;
+package edu.tallerjava.Services;
 
 import edu.tallerjava.modelo.Category;
-import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.security.PublicKey;
 import java.util.List;
 
-public interface CategoryRepository {
+public interface CategoryService {
 
     List<Category> GetAll();
     Category GetCategoryById();

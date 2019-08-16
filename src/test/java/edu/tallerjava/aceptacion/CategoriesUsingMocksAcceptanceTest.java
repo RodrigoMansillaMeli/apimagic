@@ -31,7 +31,7 @@ public class CategoriesUsingMocksAcceptanceTest extends AcceptanceTest{
         c2.setNombre("Alimentos y Bebidas");
         list.add(c2);
 
-        when(categoryRepository.findAll()).thenReturn(list);
+        when(categoryRepository.GetAll()).thenReturn(list);
 
         final List results = this.restTemplate.getForObject(url + "/categories", List.class);
         assertThat(results).hasSize(2);
